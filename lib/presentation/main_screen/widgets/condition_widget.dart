@@ -7,19 +7,19 @@ class WeatherCondition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.read<MainScreenModel>().currentWeather;
+    final model = context.watch<MainScreenModel>().currentWeather;
     if (model == null) {
       return const Center(
         child: CircularProgressIndicator(),
       );
     }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    final image = Image.network(
+      'https:${model.current!.condition!.icon!}',
+      scale: 0.5,
+    );
+    return Column(
       children: [
-        Image.network(
-          model.current!.condition!.icon!,
-          scale: 0.5,
-        ),
+        image,
         const ConditionText(),
       ],
     );
@@ -31,13 +31,73 @@ class ConditionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.read<MainScreenModel>().currentWeather;
+    final model = context.watch<MainScreenModel>().currentWeather;
+    return Card(
+      color: const Color.fromRGBO(255, 255, 255, 0.7),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(model!.current!.lastUpdated!),
+            Text(
+              '${model.current!.tempC!.toInt()}°C',
+              style: const TextStyle(fontSize: 40),
+            ),
+            Text(model.current!.condition!.text!),
+            const WindAndHumInfoWIdget(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WindAndHumInfoWIdget extends StatelessWidget {
+  const WindAndHumInfoWIdget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final model = context.watch<MainScreenModel>().currentWeather;
+
     return Column(
       children: [
-        Text(model!.current!.lastUpdated!),
-        Text('${model.current!.tempC!.toInt()}°C'),
-        Text(model.current!.condition!.text!),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Ветер'),
+            const MyDivider(),
+            Text('${model!.current!.windKph}км/ч'),
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Влажность'),
+            const MyDivider(),
+            Text('${model.current!.humidity}%'),
+          ],
+        ),
       ],
+    );
+  }
+}
+
+class MyDivider extends StatelessWidget {
+  const MyDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.black54,
+        ),
+        width: 0.5,
+        height: 14,
+      ),
     );
   }
 }

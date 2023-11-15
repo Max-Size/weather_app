@@ -4,14 +4,6 @@ part 'location.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Location {
-  String? name;
-  String? region;
-  String? country;
-  double? lat;
-  int? lon;
-  String? tzId;
-  int? localtimeEpoch;
-  String? localtime;
 
   Location({
     this.name,
@@ -24,7 +16,16 @@ class Location {
     this.localtime,
   });
 
-  factory Location.fromJson(Map<String,dynamic> json) => _$LocationFromJson(json);
+  factory Location.fromJson(Map<String,dynamic> json) =>
+   _$LocationFromJson(json);
+  String? name;
+  String? region;
+  String? country;
+  double? lat;
+  double? lon;
+  String? tzId;
+  int? localtimeEpoch;
+  String? localtime;
 
   Map<String,dynamic> toJson() => _$LocationToJson(this);
 }
