@@ -12,7 +12,7 @@ class Condition {
 
   factory Condition.fromJson(Map<String,dynamic> json) => _$ConditionFromJson(json);
 
-  void toJson() => _$ConditionToJson(this);
+  Map<String,dynamic> toJson() => _$ConditionToJson(this);
 
 
 }

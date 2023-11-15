@@ -11,5 +11,7 @@ class CurrentWeather {
 
   CurrentWeather({ required this.location,required this.current});
 
+  factory CurrentWeather.fromJson(Map<String,dynamic> json) => _$CurrentWeatherFromJson(json);
 
+  Map<String,dynamic> toJson() => _$CurrentWeatherToJson(this);
 }

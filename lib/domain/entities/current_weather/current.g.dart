@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-
 part of 'current.dart';
 
 // **************************************************************************
@@ -9,27 +8,27 @@ part of 'current.dart';
 Current _$CurrentFromJson(Map<String, dynamic> json) => Current(
       lastUpdatedEpoch: json['last_updated_epoch'] as int?,
       lastUpdated: json['last_updated'] as String?,
-      tempC: json['temp_c'] as int?,
-      tempF: json['temp_f'] as int?,
+      tempC: json['temp_c'] as double?,
+      tempF: json['temp_f'] as double?,
       isDay: json['is_day'] as int?,
       condition: json['condition'] == null
           ? null
           : Condition.fromJson(json['condition'] as Map<String, dynamic>),
       windMph: (json['wind_mph'] as num?)?.toDouble(),
-      windKph: json['wind_kph'] as int?,
-      windDegree: json['wind_degree'] as int?,
+      windKph: json['wind_kph'] as double?,
+      windDegree: json['wind_degree'] as double?,
       windDir: json['wind_dir'] as String?,
-      pressureMb: json['pressure_mb'] as int?,
+      pressureMb: json['pressure_mb'] as double?,
       pressureIn: (json['pressure_in'] as num?)?.toDouble(),
       precipMm: (json['precip_mm'] as num?)?.toDouble(),
-      precipIn: json['precip_in'] as int?,
-      humidity: json['humidity'] as int?,
-      cloud: json['cloud'] as int?,
+      precipIn: json['precip_in'] as double?,
+      humidity: json['humidity'] as double?,
+      cloud: json['cloud'] as double?,
       feelslikeC: (json['feelslike_c'] as num?)?.toDouble(),
       feelslikeF: (json['feelslike_f'] as num?)?.toDouble(),
-      visKm: json['vis_km'] as int?,
-      visMiles: json['vis_miles'] as int?,
-      uv: json['uv'] as int?,
+      visKm: json['vis_km'] as double?,
+      visMiles: json['vis_miles'] as double?,
+      uv: json['uv'] as double?,
       gustMph: (json['gust_mph'] as num?)?.toDouble(),
       gustKph: (json['gust_kph'] as num?)?.toDouble(),
     );
