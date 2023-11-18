@@ -5,7 +5,7 @@ part of 'current.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Current _$CurrentFromJson(Map<String, dynamic> json) => Current(
+CurrentModel _$CurrentModelFromJson(Map<String, dynamic> json) => CurrentModel(
       lastUpdatedEpoch: json['last_updated_epoch'] as int?,
       lastUpdated: json['last_updated'] as String?,
       tempC: json['temp_c'] as double?,
@@ -13,7 +13,7 @@ Current _$CurrentFromJson(Map<String, dynamic> json) => Current(
       isDay: json['is_day'] as int?,
       condition: json['condition'] == null
           ? null
-          : Condition.fromJson(json['condition'] as Map<String, dynamic>),
+          : ConditionModel.fromJson(json['condition'] as Map<String, dynamic>),
       windMph: (json['wind_mph'] as num?)?.toDouble(),
       windKph: json['wind_kph'] as double?,
       windDegree: json['wind_degree'] as int?,
@@ -33,13 +33,14 @@ Current _$CurrentFromJson(Map<String, dynamic> json) => Current(
       gustKph: (json['gust_kph'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$CurrentToJson(Current instance) => <String, dynamic>{
+Map<String, dynamic> _$CurrentModelToJson(CurrentModel instance) =>
+    <String, dynamic>{
       'last_updated_epoch': instance.lastUpdatedEpoch,
       'last_updated': instance.lastUpdated,
       'temp_c': instance.tempC,
       'temp_f': instance.tempF,
       'is_day': instance.isDay,
-      'condition': instance.condition?.toJson(),
+      'condition': (instance.condition! as ConditionModel).toJson(),
       'wind_mph': instance.windMph,
       'wind_kph': instance.windKph,
       'wind_degree': instance.windDegree,

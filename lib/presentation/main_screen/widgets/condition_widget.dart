@@ -62,12 +62,21 @@ class WindAndHumInfoWIdget extends StatelessWidget {
 
     return Column(
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
+        Stack(
+          alignment: Alignment.center,
           children: [
-            const Text('Ветер'),
+            const SizedBox(
+              width: 150,
+            ),
+            const Positioned(
+              left: 0,
+              child: Text('Ветер'),
+            ),
             const MyDivider(),
-            Text('${model!.current!.windKph}км/ч'),
+            Positioned(
+              right: 0,
+              child: Text('${model!.current!.windKph}км/ч'),
+            ),
           ],
         ),
         Row(

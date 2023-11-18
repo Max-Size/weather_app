@@ -1,9 +1,12 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'location.g.dart';
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class Location {
+class Location{
+  String? name;
+  String? region;
+  String? country;
+  double? lat;
+  double? lon;
+  String? tzId;
+  int? localtimeEpoch;
+  String? localtime;
 
   Location({
     this.name,
@@ -15,17 +18,5 @@ class Location {
     this.localtimeEpoch,
     this.localtime,
   });
-
-  factory Location.fromJson(Map<String,dynamic> json) =>
-   _$LocationFromJson(json);
-  String? name;
-  String? region;
-  String? country;
-  double? lat;
-  double? lon;
-  String? tzId;
-  int? localtimeEpoch;
-  String? localtime;
-
-  Map<String,dynamic> toJson() => _$LocationToJson(this);
+  
 }

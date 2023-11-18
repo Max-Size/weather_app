@@ -13,17 +13,13 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF47BFDF),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                children: [Text(model.currentWeather?.location?.name ?? '')],
-              ),
-              const WeatherCondition(),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(model.currentWeather?.location?.name ?? ''),
+            const WeatherCondition(),
+          ],
         ),
       ),
     );

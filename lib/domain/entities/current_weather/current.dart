@@ -1,10 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:weather_app/domain/entities/current_weather/condition.dart';
-part 'current.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class Current {
-
   Current({
     this.lastUpdatedEpoch,
     this.lastUpdated,
@@ -31,7 +27,6 @@ class Current {
     this.gustKph,
   });
 
-  factory Current.fromJson(Map<String,dynamic> json) => _$CurrentFromJson(json);
   int? lastUpdatedEpoch;
   String? lastUpdated;
   double? tempC;
@@ -55,6 +50,4 @@ class Current {
   double? uv;
   double? gustMph;
   double? gustKph;
-
-  Map<String,dynamic> toJson() => _$CurrentToJson(this);
 }
