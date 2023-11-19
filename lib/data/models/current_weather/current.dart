@@ -4,8 +4,7 @@ import 'package:weather_app/domain/entities/current_weather/current.dart';
 part 'current.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class CurrentModel extends Current{
-
+class CurrentModel extends Current {
   CurrentModel({
     super.lastUpdatedEpoch,
     super.lastUpdated,
@@ -32,7 +31,8 @@ class CurrentModel extends Current{
     super.gustKph,
   });
 
-  factory CurrentModel.fromJson(Map<String,dynamic> json) => _$CurrentModelFromJson(json);
-  
-  Map<String,dynamic> toJson() => _$CurrentModelToJson(this);
+  factory CurrentModel.fromJson(Map<String, dynamic> json) =>
+      _$CurrentModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CurrentModelToJson(this);
 }

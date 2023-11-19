@@ -17,7 +17,8 @@ LocationModel _$LocationFromJson(Map<String, dynamic> json) => LocationModel(
       localtime: json['localtime'] as String?,
     );
 
-Map<String, dynamic> _$LocationModelToJson(Location instance) => <String, dynamic>{
+Map<String, dynamic> _$LocationModelToJson(Location instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'region': instance.region,
       'country': instance.country,

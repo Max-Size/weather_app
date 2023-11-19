@@ -6,7 +6,8 @@ part of 'condition.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ConditionModel _$ConditionModelFromJson(Map<String, dynamic> json) => ConditionModel(
+ConditionModel _$ConditionModelFromJson(Map<String, dynamic> json) =>
+    ConditionModel(
       text: json['text'] as String?,
       icon: json['icon'] as String?,
       code: json['code'] as int?,

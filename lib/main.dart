@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/presentation/main_screen/main_screen_model.dart';
-import 'package:weather_app/presentation/main_screen/main_screen_widget.dart';
+import 'package:weather_app/presentation/pages/main_screen_widget.dart';
+import 'package:weather_app/presentation/provider/main_screen_model.dart';
 
 void main() {
   runApp(const MyApp());
