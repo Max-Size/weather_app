@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/presentation/provider/main_screen_model.dart';
-import 'package:weather_app/presentation/widgets/condition_widget.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/main_screen_model.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/widgets/condition_widget.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -16,15 +16,16 @@ class MainScreen extends StatelessWidget {
         title: const Center(child: Text('Погода')),
       ),
       backgroundColor: const Color.fromRGBO(244, 249, 255, 1),
-      body: const SizedBox(
+      body: /*const SizedBox(
         width: double.infinity,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-             WeatherCondition(),
-          ],
-        ),
+        child:*/
+
+          ListView(
+        children: const [
+          WeatherCondition(),
+        ],
       ),
+      //),
     );
   }
 }

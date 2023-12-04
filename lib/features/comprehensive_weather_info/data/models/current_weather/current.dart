@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather_app/data/models/current_weather/condition.dart';
-import 'package:weather_app/domain/entities/current_weather/current.dart';
+import 'package:weather_app/features/comprehensive_weather_info/data/models/current_weather/condition.dart';
+import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/current.dart';
 part 'current.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)

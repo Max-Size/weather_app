@@ -33,6 +33,7 @@ dependencies:
   provider:
   http:
   json_annotation:
+  get_it:
 
 dev_dependencies:
   flutter_test:

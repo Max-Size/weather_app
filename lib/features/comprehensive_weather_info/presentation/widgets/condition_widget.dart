@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/presentation/provider/main_screen_model.dart';
-import 'package:weather_app/presentation/widgets/additional_data_widget.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/main_screen_model.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/widgets/additional_data_widget.dart';
 
 class WeatherCondition extends StatelessWidget {
   const WeatherCondition({super.key});

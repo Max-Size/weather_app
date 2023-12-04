@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:weather_app/presentation/pages/main_screen_widget.dart';
-import 'package:weather_app/presentation/provider/main_screen_model.dart';
+import 'package:weather_app/config/routes.dart';
+import 'package:weather_app/injection.dart';
 
 void main() {
+  initDependencies();
   runApp(const MyApp());
 }
 
@@ -13,10 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ChangeNotifierProvider(
-        create: (BuildContext context) => MainScreenModel(),
-        child: const MainScreen(),
-      ),
+      routes: AppRoutes.routes,
+      initialRoute: AppRouteNames.main,
     );
   }
 }

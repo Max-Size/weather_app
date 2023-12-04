@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather_app/domain/entities/current_weather/condition.dart';
+import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/condition.dart';
 
 part 'condition.g.dart';
 

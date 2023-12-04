@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather_app/data/models/current_weather/current.dart';
-import 'package:weather_app/data/models/current_weather/location.dart';
-import 'package:weather_app/domain/entities/current_weather/current_weather.dart';
+import 'package:weather_app/features/comprehensive_weather_info/data/models/current_weather/current.dart';
+import 'package:weather_app/features/comprehensive_weather_info/data/models/current_weather/location.dart';
+import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/current_weather.dart';
 
 part 'current_weather.g.dart';
 
