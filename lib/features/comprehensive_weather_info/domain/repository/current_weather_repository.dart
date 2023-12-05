@@ -1,15 +1,10 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:weather_app/core/constants/constans.dart';
-import 'package:weather_app/features/comprehensive_weather_info/data/models/current_weather/current_weather.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/current_weather.dart';
 
 abstract class CurrentWeatherRepository {
-  Future<CurrentWeather?> getCurrentWeather();
+  Future<CurrentWeather?> getCurrentWeather(String city);
 }
 
-class ApiClient {
+/*class ApiClient {
   Future<CurrentWeather?> getCurrentWeather({
     required String language,
     String city = 'auto:ip',
@@ -35,4 +30,4 @@ class ApiClient {
       return null;
     }
   }
-}
+}*/

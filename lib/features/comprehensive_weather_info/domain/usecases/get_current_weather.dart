@@ -6,7 +6,7 @@ class GetCurrentWeatherUseCase{
 
   GetCurrentWeatherUseCase(this._currentWeatherRepository);
 
-  Future<CurrentWeather?> call(){
-    return _currentWeatherRepository.getCurrentWeather();
+  Future<CurrentWeather?> call(String city){
+    return _currentWeatherRepository.getCurrentWeather(city);
   }
 }

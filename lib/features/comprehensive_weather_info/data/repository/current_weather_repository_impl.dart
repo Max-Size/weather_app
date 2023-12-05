@@ -11,10 +11,11 @@ class CurrentWeatherRepositoryImpl implements CurrentWeatherRepository {
   CurrentWeatherRepositoryImpl(this._weatherApiService);
 
   @override
-  Future<CurrentWeatherModel?> getCurrentWeather() async {
+  Future<CurrentWeatherModel?> getCurrentWeather(String city) async {
     try {
       final httpResponse = await _weatherApiService.getCurrentWeather(
         language: 'ru',
+        city: city,
         apiKey: apiKey,
       );
       if (httpResponse.statusCode == 200) {
