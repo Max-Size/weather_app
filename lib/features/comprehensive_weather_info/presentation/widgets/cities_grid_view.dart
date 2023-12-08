@@ -17,6 +17,7 @@ class CitesGridView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return const GridViewItem();
         },
+        itemCount: 5,
       ),
     );
   }

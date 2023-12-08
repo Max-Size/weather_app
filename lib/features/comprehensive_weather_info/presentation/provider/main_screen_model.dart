@@ -5,19 +5,17 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/
 
 class MainScreenModel extends ChangeNotifier{
 
-  late final GetCurrentWeatherUseCase _getCurrentWeatherUseCase;
+  CurrentWeather? currentWeather;
+  final GetCurrentWeatherUseCase _getCurrentWeatherUseCase;
 
-  MainScreenModel({String city = 'auto:ip'}){
-    _getCurrentWeatherUseCase = GetIt.I.get<GetCurrentWeatherUseCase>();
+  MainScreenModel({String city = 'auto:ip'}): _getCurrentWeatherUseCase =
+    GetIt.I.get<GetCurrentWeatherUseCase>(){
     getCurrentWeather(city);
   }
   
-  //final _apiClient = ApiClient();
-  CurrentWeather? currentWeather;
 
   Future<void> getCurrentWeather(String city) async{
     currentWeather = await _getCurrentWeatherUseCase(city);
-    //currentWeather = await _apiClient.getCurrentWeather(language: 'ru');
     notifyListeners();
   }
   

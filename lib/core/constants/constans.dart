@@ -3,3 +3,4 @@ const apiHost = 'api.weatherapi.com';
 const apiGetCurrentWeatherPath = '/v1/current.json';
 const getForecastPath = '/v1/forecast.json';
 const searchAutocompletePath = '/v1/search.json';
+const favoriteCitesKey = 'favoriteCites';

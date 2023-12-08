@@ -5,13 +5,12 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/
 
 class SearchingCityModel extends ChangeNotifier{
 
-  String typedCityName = '';
+  //String typedCityName = '';
   List<City>? citySuggestions;
-  late final GetCitiesSuggestionsUseCase _getCitiesSuggestionsUseCase;
+  final GetCitiesSuggestionsUseCase _getCitiesSuggestionsUseCase;
 
-  SearchingCityModel(){
-    _getCitiesSuggestionsUseCase = GetIt.I.get<GetCitiesSuggestionsUseCase>();
-  }
+  SearchingCityModel() : _getCitiesSuggestionsUseCase = 
+    GetIt.I.get<GetCitiesSuggestionsUseCase>();
 
   Future<void> updateCitySuggestions(String str) async{
     citySuggestions = await _getCitiesSuggestionsUseCase(str);
