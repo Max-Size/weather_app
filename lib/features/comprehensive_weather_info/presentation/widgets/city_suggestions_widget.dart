@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/favorite_cities_model.dart';
 import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/searching_city_model.dart';
 
 class CitySuggestionsListWidget extends StatelessWidget {
@@ -10,11 +11,16 @@ class CitySuggestionsListWidget extends StatelessWidget {
     final model = context.watch<SearchingCityModel>();
     return ListView.separated(
       padding: const EdgeInsets.only(top: 100),
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         final city = model.citySuggestions?[index];
-        return Text(city?.name ?? '');
+        return GestureDetector(
+          onTap: () => context
+              .read<FavoriteCitiesModel>()
+              .addToFavoriteCities(context, city?.id.toString() ?? ''),
+          child: Text(city?.name ?? ''),
+        );
       },
-      separatorBuilder: (context,index) => const Divider(),
+      separatorBuilder: (context, index) => const Divider(),
       itemCount: model.citySuggestions?.length ?? 0,
     );
   }

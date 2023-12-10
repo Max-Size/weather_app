@@ -5,7 +5,6 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/
 
 class SearchingCityModel extends ChangeNotifier{
 
-  //String typedCityName = '';
   List<City>? citySuggestions;
   final GetCitiesSuggestionsUseCase _getCitiesSuggestionsUseCase;
 

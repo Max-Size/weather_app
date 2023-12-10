@@ -6,7 +6,7 @@ class GetFavoriteCitiesUseCase{
 
   GetFavoriteCitiesUseCase(this._favoriteCitiesRepository);
 
-  List<String>? call(){
+  Future<List<String>?> call(){
     return _favoriteCitiesRepository.getCitiesId();
   }
 

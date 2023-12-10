@@ -2,8 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoriteCitiesCacheService{
 
-  final SharedPreferences prefs;
+  final Future<SharedPreferences> prefs;
 
-  FavoriteCitiesCacheService({required this.prefs});
+  FavoriteCitiesCacheService (): prefs = SharedPreferences.getInstance();
 
 }

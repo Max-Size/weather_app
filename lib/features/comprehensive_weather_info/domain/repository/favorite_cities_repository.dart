@@ -1,6 +1,6 @@
 abstract class FavoriteCitiesRepository{
 
-  List<String>? getCitiesId();
+  Future<List<String>?> getCitiesId();
   
   Future<void> addCityById(String id);
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/favorite_cities_model.dart';
 import 'package:weather_app/features/comprehensive_weather_info/presentation/widgets/grid_view_item.dart';
 
 class CitesGridView extends StatelessWidget {
@@ -6,18 +8,24 @@ class CitesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = context.watch<FavoriteCitiesModel>();
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          mainAxisSpacing: 16, // Spacing between rows
-          crossAxisSpacing: 16, // Spacing between columns
+          crossAxisCount: 2,
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return const GridViewItem();
+          final currentWeather = model.currentWeathersOfFavoriteCities?[index];
+          return GestureDetector(
+            onTap: () => model.onFavoriteCityTap(context, index),
+            child: GridViewItem(currentWeather),
+          );
         },
-        itemCount: 5,
+        itemCount: model.favoriteCities?.length ?? 0,
       ),
     );
   }

@@ -8,27 +8,29 @@ class FavoriteCitiesRepositoryImpl implements FavoriteCitiesRepository {
   FavoriteCitiesRepositoryImpl(this._favoriteCitiesCacheService);
 
   @override
-  Future<void> addCityById(String id) async{
-    final list = getCitiesId() ?? <String>[];
+  Future<void> addCityById(String id) async {
+    final prefs = await _favoriteCitiesCacheService.prefs;
+    final list = await getCitiesId() ?? <String>[];
     list.add(id);
-    await _favoriteCitiesCacheService.prefs.setStringList(
+    await prefs.setStringList(
       favoriteCitesKey,
       list,
     );
   }
 
   @override
-  List<String>? getCitiesId() {
-    final list =
-        _favoriteCitiesCacheService.prefs.getStringList(favoriteCitesKey);
+  Future<List<String>?> getCitiesId() async {
+    final prefs = await _favoriteCitiesCacheService.prefs;
+    final list = prefs.getStringList(favoriteCitesKey);
     return list;
   }
 
   @override
   Future<void> removeCityById(String id) async {
-    final list = getCitiesId();
+    final prefs = await _favoriteCitiesCacheService.prefs;
+    final list = await getCitiesId();
     list?.remove(id);
-    await _favoriteCitiesCacheService.prefs.setStringList(
+    await prefs.setStringList(
       favoriteCitesKey,
       list ?? [],
     );

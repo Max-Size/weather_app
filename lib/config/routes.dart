@@ -14,15 +14,28 @@ abstract class AppRouteNames {
 
 abstract class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
-    AppRouteNames.main: (context) => ChangeNotifierProvider(
-          create: (BuildContext context) =>
-              MainScreenModel(city: 'Nizhniy Novgorod'),
-          child: const MainScreen(),
-        ),
     AppRouteNames.favouriteCities: (context) => const FavouriteCitiesList(),
     AppRouteNames.citySearch: (context) => ChangeNotifierProvider(
           create: (BuildContext context) => SearchingCityModel(),
           child: const SearchingCityScreen(),
         ),
   };
+
+  static Route<Object> onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case AppRouteNames.main:
+        final args = settings.arguments as String?;
+        final cityId = args == null ? 'auto:ip' : 'id:$args';
+        return MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider(
+            create: (BuildContext context) =>
+                MainScreenModel(city: cityId),
+            child: const MainScreen(),
+          ),
+        );
+      default:
+        const widget = Text('Navigation error!!!');
+        return MaterialPageRoute(builder: (context) => widget);
+    }
+  }
 }
