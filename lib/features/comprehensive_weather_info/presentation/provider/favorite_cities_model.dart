@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather_app/config/routes.dart';
@@ -31,7 +33,7 @@ class FavoriteCitiesModel extends ChangeNotifier {
 
   Future<void> addToFavoriteCities(BuildContext context, String id) async {
     await _addFavoriteCityUseCase(id);
-    await _getCurrentWeatherOfFavoritCities();
+    unawaited(_getCurrentWeatherOfFavoritCities());
     if (!context.mounted) return;
     Navigator.of(context).pop();
   }
