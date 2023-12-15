@@ -26,10 +26,10 @@ class FavoriteCitiesRepositoryImpl implements FavoriteCitiesRepository {
   }
 
   @override
-  Future<void> removeCityById(String id) async {
+  Future<void> removeCityByIndex(int index) async {
     final prefs = await _favoriteCitiesCacheService.prefs;
     final list = await getCitiesId();
-    list?.remove(id);
+    list?.removeAt(index);
     await prefs.setStringList(
       favoriteCitesKey,
       list ?? [],

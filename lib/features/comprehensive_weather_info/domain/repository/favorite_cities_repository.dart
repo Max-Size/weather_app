@@ -4,6 +4,6 @@ abstract class FavoriteCitiesRepository{
   
   Future<void> addCityById(String id);
 
-  Future<void> removeCityById(String id);
+  Future<void> removeCityByIndex(int index);
 
 }

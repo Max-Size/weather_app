@@ -6,8 +6,8 @@ class RemoveFavoriteCityUseCase{
 
   RemoveFavoriteCityUseCase(this._favoriteCitiesRepository);
 
-  Future<void> call(String id) async{
-    await _favoriteCitiesRepository.removeCityById(id);
+  Future<void> call(int index) async{
+    return _favoriteCitiesRepository.removeCityByIndex(index);
   }
 
 }

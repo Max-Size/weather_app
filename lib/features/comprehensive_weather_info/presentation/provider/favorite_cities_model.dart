@@ -12,8 +12,7 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/
 class FavoriteCitiesModel extends ChangeNotifier {
   List<String>? _favoriteCitiesID;
   List<CurrentWeather?>? currentWeathersOfFavoriteCities;
-  List<String>? get favoriteCities =>
-      _favoriteCitiesID == null ? null : List.unmodifiable(_favoriteCitiesID!);
+  
   final GetFavoriteCitiesUseCase _getFavoriteCitiesUseCase;
   final AddFavoriteCityUseCase _addFavoriteCityUseCase;
   final RemoveFavoriteCityUseCase _removeFavoriteCityUseCase;
@@ -50,12 +49,18 @@ class FavoriteCitiesModel extends ChangeNotifier {
   Future<void> _getCurrentWeatherOfFavoritCities() async {
     await _getFavouriteCities();
     final length = _favoriteCitiesID?.length ?? 0;
-    currentWeathersOfFavoriteCities = List.filled(length, null);
+    currentWeathersOfFavoriteCities = List.filled(length, null, growable: true);
     for (var i = 0; i < length; i++) {
       currentWeathersOfFavoriteCities![i] = await _getCurrentWeatherUseCase(
         'id:${_favoriteCitiesID![i]}',
       );
     }
+    notifyListeners();
+  }
+
+  void onDeleteTap(int index){
+    unawaited(_removeFavoriteCityUseCase(index));
+    currentWeathersOfFavoriteCities?.removeAt(index);
     notifyListeners();
   }
 

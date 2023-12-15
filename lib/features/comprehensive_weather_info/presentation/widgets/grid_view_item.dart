@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/current_weather.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/provider/favorite_cities_model.dart';
 
 class GridViewItem extends StatelessWidget {
   final CurrentWeather? currentWeather;
+  final int index;
 
-  const GridViewItem(this.currentWeather, {super.key});
+  const GridViewItem(this.currentWeather, this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,17 @@ class GridViewItem extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              children: [Text(currentWeather?.location?.name ?? '')],
+              children: [
+                Expanded(
+                  child: Text(currentWeather?.location?.name ?? ''),
+                ),
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () =>
+                      context.read<FavoriteCitiesModel>().onDeleteTap(index),
+                  icon: const Icon(Icons.delete_outline_rounded),
+                ),
+              ],
             ),
             Image.network(
               'https:${currentWeather!.current!.condition!.icon!}',

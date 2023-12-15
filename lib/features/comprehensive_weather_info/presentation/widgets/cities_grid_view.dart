@@ -10,12 +10,12 @@ class CitesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = context.watch<FavoriteCitiesModel>();
 
-    return model.favoriteCities == null
+    return model.currentWeathersOfFavoriteCities == null
         ? const Center(
             child: CircularProgressIndicator(),
           )
         : Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.all(10),
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -27,10 +27,10 @@ class CitesGridView extends StatelessWidget {
                     model.currentWeathersOfFavoriteCities?[index];
                 return GestureDetector(
                   onTap: () => model.onFavoriteCityTap(context, index),
-                  child: GridViewItem(currentWeather),
+                  child: GridViewItem(currentWeather, index),
                 );
               },
-              itemCount: model.favoriteCities?.length ?? 0,
+              itemCount: model.currentWeathersOfFavoriteCities?.length ?? 0,
             ),
           );
   }

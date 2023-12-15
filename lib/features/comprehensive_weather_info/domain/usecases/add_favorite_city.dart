@@ -7,7 +7,7 @@ class AddFavoriteCityUseCase{
   AddFavoriteCityUseCase(this._favoriteCitiesRepository);
 
   Future<void> call(String id) async{
-    await _favoriteCitiesRepository.addCityById(id);
+    return _favoriteCitiesRepository.addCityById(id);
   }
 
 }
