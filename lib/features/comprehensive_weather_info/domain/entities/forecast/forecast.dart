@@ -5,5 +5,5 @@ class Forecast{
   List<ForecastDay>? forecastday;
 
   Forecast({required this.forecastday});
-  
+
 }

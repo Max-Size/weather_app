@@ -2,7 +2,8 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/entities/
 import 'package:weather_app/features/comprehensive_weather_info/domain/entities/current_weather/location.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/entities/forecast/forecast.dart';
 
-class FullForecast {
+class FullForecast{
+
   Location? location;
   Current? current;
   Forecast? forecast;
@@ -12,4 +13,5 @@ class FullForecast {
     required this.forecast,
     required this.location,
   });
+
 }
