@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/config/routes.dart';
 import 'package:weather_app/features/comprehensive_weather_info/presentation/widgets/condition_widget.dart';
+import 'package:weather_app/features/comprehensive_weather_info/presentation/widgets/today_hourly_forecast_widget.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -23,6 +24,7 @@ class MainScreen extends StatelessWidget {
       body: ListView(
         children: const [
           WeatherCondition(),
+          TodayHourlyForecastWidget(),
         ],
       ),
     );

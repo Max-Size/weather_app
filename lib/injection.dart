@@ -16,6 +16,7 @@ import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/
 final getIt = GetIt.I;
 
 void initDependencies() {
+
   getIt.registerSingleton<GetCurrentWeatherUseCase>(
     GetCurrentWeatherUseCase(
       CurrentWeatherRepositoryImpl(
@@ -63,4 +64,5 @@ void initDependencies() {
       ),
     ),
   );
+  
 }
