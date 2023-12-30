@@ -21,4 +21,27 @@ class WeatherApiService {
     final response = await http.get(url);
     return response;
   }
+
+  Future<Response> getForecast({
+    required String language,
+    required String city,
+    required String apiKey,
+    String days = '3',
+  }) async{
+    final queryParameters = <String, dynamic>{
+      'key': apiKey,
+      'q': city,
+      'days' : days,
+      'lang': language,
+    };
+
+    final url = Uri.http(
+      apiHost,
+      apiGetForecastPath,
+      queryParameters,
+    );
+
+    final response = await http.get(url);
+    return response;
+  }
 }

@@ -51,6 +51,7 @@ class ConditionText extends StatelessWidget {
           '${model?.location?.name ?? ''}, ${model?.location?.country ?? ''} ',
         ),
         Text(model?.current?.condition!.text! ?? ''),
+        Text('Ощущается как ${model?.current!.feelslikeC!.toInt()}°C'),
       ],
     );
   }

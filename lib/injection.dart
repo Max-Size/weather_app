@@ -5,10 +5,12 @@ import 'package:weather_app/features/comprehensive_weather_info/data/data_source
 import 'package:weather_app/features/comprehensive_weather_info/data/repository/city_suggestions_repository_impl.dart';
 import 'package:weather_app/features/comprehensive_weather_info/data/repository/current_weather_repository_impl.dart';
 import 'package:weather_app/features/comprehensive_weather_info/data/repository/favorite_cities_repository_impl.dart';
+import 'package:weather_app/features/comprehensive_weather_info/data/repository/forecast_repository_impl.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/add_favorite_city.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/get_cities_suggestions.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/get_current_weather.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/get_favourite_cities.dart';
+import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/get_forecast.dart';
 import 'package:weather_app/features/comprehensive_weather_info/domain/usecases/remove_favorite_city.dart';
 
 final getIt = GetIt.I;
@@ -30,8 +32,6 @@ void initDependencies() {
     ),
   );
 
-  
-
   getIt.registerSingleton<GetFavoriteCitiesUseCase>(
     GetFavoriteCitiesUseCase(
       FavoriteCitiesRepositoryImpl(
@@ -52,6 +52,14 @@ void initDependencies() {
     RemoveFavoriteCityUseCase(
       FavoriteCitiesRepositoryImpl(
         FavoriteCitiesCacheService(),
+      ),
+    ),
+  );
+
+  getIt.registerSingleton<GetForecastUsecase>(
+    GetForecastUsecase(
+      ForecastRepositoryImpl(
+        WeatherApiService(),
       ),
     ),
   );
