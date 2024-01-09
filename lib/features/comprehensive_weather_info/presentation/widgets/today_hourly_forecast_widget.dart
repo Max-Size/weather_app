@@ -9,12 +9,11 @@ class TodayHourlyForecastWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = context.watch<MainScreenModel>();
     if (model.forecast == null) {
-      return const CircularProgressIndicator();
+      return const SizedBox.shrink();
     }
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 20,
+      padding: const EdgeInsets.all(
+        20,
       ),
       child: SizedBox(
         height: 105,
@@ -52,7 +51,7 @@ class HourlyForecastListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

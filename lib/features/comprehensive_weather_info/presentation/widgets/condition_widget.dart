@@ -24,7 +24,10 @@ class WeatherCondition extends StatelessWidget {
         image,
         const ConditionText(),
         const Padding(
-          padding: EdgeInsets.only(top: 50),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 25,
+          ),
           child: WindAndHumInfoWIdget(),
         ),
       ],
@@ -70,7 +73,7 @@ class WindAndHumInfoWIdget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           AdditionalDataWidget(
             name: 'Ветер',
