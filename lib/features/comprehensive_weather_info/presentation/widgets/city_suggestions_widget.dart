@@ -9,19 +9,30 @@ class CitySuggestionsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<SearchingCityModel>();
-    return ListView.separated(
-      padding: const EdgeInsets.only(top: 100),
-      itemBuilder: (context, index) {
-        final city = model.citySuggestions?[index];
-        return GestureDetector(
-          onTap: () => context
-              .read<FavoriteCitiesModel>()
-              .addToFavoriteCities(context, city?.id.toString() ?? ''),
-          child: Text(city?.name ?? ''),
-        );
-      },
-      separatorBuilder: (context, index) => const Divider(),
-      itemCount: model.citySuggestions?.length ?? 0,
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: ListView.separated(
+        padding: const EdgeInsets.only(top: 100),
+        itemBuilder: (context, index) {
+          final city = model.citySuggestions?[index];
+          return Padding(
+            padding: const EdgeInsets.all(5),
+            child: GestureDetector(
+              onTap: () => context
+                  .read<FavoriteCitiesModel>()
+                  .addToFavoriteCities(context, city?.id.toString() ?? ''),
+              child: Text(
+                '${city?.name}, ${city?.region}, ${city?.country}',
+                style: const TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: model.citySuggestions?.length ?? 0,
+      ),
     );
   }
 }

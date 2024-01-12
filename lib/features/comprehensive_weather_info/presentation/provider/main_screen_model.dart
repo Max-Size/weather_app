@@ -35,9 +35,10 @@ class MainScreenModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // TODO(maxsize): correct the forecast with local time 
   List<Hour>? getActualForecast() {
-    final timeInHour = DateTime.now().hour;
+    final timeInHour =
+        DateTime.tryParse('${currentWeather?.current?.lastUpdated}:00')?.hour ??
+            DateTime.now().hour;
     final filteredTodayForecast = forecast!.forecastday?[0].hour
         ?.where(
           (element) =>
@@ -60,19 +61,16 @@ class MainScreenModel extends ChangeNotifier {
   }
 
   String getConditionIconUrl(int dayIndex, PeriodOfDay timeOfDay) {
+    final thisDay = forecast?.forecastday?[dayIndex];
     switch (timeOfDay) {
       case PeriodOfDay.morning:
-        return  'https:${forecast?.forecastday?[dayIndex].hour?[5]
-                              .condition?.icon}';
+        return 'https:${thisDay?.hour?[5].condition?.icon}';
       case PeriodOfDay.day:
-        return  'https:${forecast?.forecastday?[dayIndex].hour?[11]
-                              .condition?.icon}';
+        return 'https:${thisDay?.hour?[11].condition?.icon}';
       case PeriodOfDay.evening:
-        return  'https:${forecast?.forecastday?[dayIndex].hour?[17]
-                              .condition?.icon}';
+        return 'https:${thisDay?.hour?[17].condition?.icon}';
       case PeriodOfDay.night:
-        return  'https:${forecast?.forecastday?[dayIndex].hour?[23]
-                              .condition?.icon}';
+        return 'https:${thisDay?.hour?[23].condition?.icon}';
     }
   }
 }

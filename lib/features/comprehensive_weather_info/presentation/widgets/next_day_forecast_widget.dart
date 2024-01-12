@@ -25,7 +25,13 @@ class NextDayForecastWidget extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: Text(model.getForecastDayTitle(dayIndex)),
+                    child: Text(
+                      model.getForecastDayTitle(dayIndex),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
                   ForecastRow(
                     timeDay: 'Утро',
