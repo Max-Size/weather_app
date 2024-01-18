@@ -1,16 +1,17 @@
-# weather_app
+# Weather App
 
-A new Flutter project.
+The app provides a functionality to get current weather and forecast for the cities user needs.
 
-## Getting Started
+## Technologies
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+For this project I used next packages:
+- Clean Architecture
+- Provider - state manager
+- http, json_serializable - networking
+- intl - localization of date
+- SharedPreferences - persistence
+- GetIt - Service locator
+## Overview
+The main screen shows the comprehensive weather data for your current location. Also here is a hourly forecast for the next 24 hours. If you will scroll down there are presented short forecasts for the next two days.
+![Screenshot_1705596013](https://github.com/Max-Size/weather_app/assets/125485047/52c6d659-5161-4c04-99a6-f513d43cdf01)
+![Screenshot_1705596030](https://github.com/Max-Size/weather_app/assets/125485047/28d20055-42d3-4803-826b-0a47340a308d)
